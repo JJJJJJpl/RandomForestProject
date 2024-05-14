@@ -1,0 +1,1 @@
+#plik przyjmuje argument .json i na podstawie pliku forest.json sprawdza wyniki dla każdego testu i je wyświetla + zapisuje do pliku test_log.txt

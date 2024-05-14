@@ -1,0 +1,13 @@
+	Nie zaczęte:
+
+Zamiana csv na json - Nikt
+Generacja drzewa - Nikt
+Gneracja lasu - Nikt
+Testowanie lasu - Nikt
+Wizualizacja - Nikt
+
+	Zaczęte:
+
+
+	Skończone:
+
