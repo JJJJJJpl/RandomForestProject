@@ -7,8 +7,9 @@ Wizualizacja - Nikt
 
 	Zaczęte:
 
-Poprawa pobranych danych - J
+
 
 	Skończone:
 
+Poprawa pobranych danych - J
 Zamiana csv na json - J
