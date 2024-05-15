@@ -7,7 +7,8 @@ Wizualizacja - Nikt
 
 	Zaczęte:
 
-Zamiana csv na json - J
+Poprawa pobranych danych - J
 
 	Skończone:
 
+Zamiana csv na json - J
