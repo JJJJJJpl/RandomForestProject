@@ -1,13 +1,13 @@
 	Nie zaczęte:
 
-Zamiana csv na json - Nikt
-Generacja drzewa - Nikt
+Generacja drzewa - J
 Gneracja lasu - Nikt
 Testowanie lasu - Nikt
 Wizualizacja - Nikt
 
 	Zaczęte:
 
+Zamiana csv na json - J
 
 	Skończone:
 
