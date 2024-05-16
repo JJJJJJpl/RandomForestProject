@@ -1,13 +1,13 @@
 	Nie zaczęte:
 
-Generacja drzewa - J
+
 Gneracja lasu - Nikt
 Testowanie lasu - Nikt
 Wizualizacja - Nikt
 
 	Zaczęte:
 
-
+Generacja drzewa - J
 
 	Skończone:
 
