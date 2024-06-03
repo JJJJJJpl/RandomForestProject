@@ -14,7 +14,7 @@ if len(sys.argv) == 3:
     provided_mapping = True
 elif len(sys.argv) != 2:
     print("Podaj ścieżkę do pliku CSV jako argument.")
-    sys.exit
+    sys.exit(0)
 
 csv_file_path = sys.argv[1]
 data_read = []
@@ -32,7 +32,7 @@ except Exception as e:
 
 if len(data_read) < 1 or len(data_read[0]) < 1:
      print("Plik jest pusty.")
-     sys.exit
+     sys.exit(0)
 
 mapping = []
 types = []
@@ -48,10 +48,10 @@ if provided_mapping:
             mapping = data[1]
     except FileNotFoundError:
         print("Podany plik json nie istnieje.")
-        sys.exit
+        sys.exit(0)
     except Exception as e:
         print("Wystąpił błąd podczas odczytu pliku json:", e)
-        sys.exit
+        sys.exit(0)
 
 else:
 
@@ -96,7 +96,7 @@ for i in data_read:
 
 #print(data_to_save,'\n=====\n',types,'\n=====\n',mapping)
 
-sys.exit
+
 try:
     if provided_mapping:
         with open('data.json', 'w') as json_file:
@@ -116,4 +116,4 @@ except Exception as e:
     print("Wystąpił błąd podczas zapisywania danych do pliku:", e)
 
 
-sys.exit
+sys.exit(0)

@@ -89,6 +89,17 @@ def Make_node(Data_Arr, Index):
     Make_node(Right_Arr,(Index*2)+1)
     return
 
+def calculate(wal) -> int:
+    curr = 1
+    while True:
+        if( type(TREE[curr]) is list ):
+            if( wal[ TREE[curr][0] ] < TREE[curr][1] ):
+                curr = curr*2
+            else:
+                curr = (curr*2) +1
+        else:
+            return TREE[curr]
+
 
 
 def show_tree():
@@ -125,13 +136,13 @@ if __name__ == "__main__":
         [1,2,6],
         [4,1,4],
         [3,1,3],
-        [1,2,6],
-        [2,2,7]
+        [1,2,6]
     ]
     Make_node(ARR,1)
     print(TREE)
 
     show_tree()
+    print( calculate([2,1,7]) )
     
 
 
