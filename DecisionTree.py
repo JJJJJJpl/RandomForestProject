@@ -1,46 +1,47 @@
 import sys
 
-
+#stores the tree as a binary tree of decisions
 TREE = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
-Depth_Max = 32
-Minimum_Elems = 2
+Depth_Max = 32  #maximum depth (last index of TREE array)
+Maksimum_Elems = 2   #maximum number of examples in a leaf
 
-LookingFor = 2
+LookingFor = 2  #position of the result
 
+#quality of division
 def SSR(Data,a,b):
-    SUM_Tak = 0
-    SUM_Nie = 0
-    AMM_Tak = 0
-    AMM_Nie = 0
-    wyn = 0
+    SUM_yes = 0
+    SUM_no = 0
+    AMM_yes = 0
+    AMM_no = 0
+    res = 0
 
-    #obliczanie średniej
+    #calculating the average
     for i in range(len(Data)):
         if Data[i][a] < b:
-            SUM_Tak += Data[i][LookingFor]
-            AMM_Tak += 1
+            SUM_yes += Data[i][LookingFor]
+            AMM_yes += 1
         else:
-            SUM_Nie += Data[i][LookingFor]
-            AMM_Nie += 1
+            SUM_no += Data[i][LookingFor]
+            AMM_no += 1
     
-    #obliczanie różnicy kwadratów
+    #calculating the sum of squered residuals
     for i in range(len(Data)):
         if Data[i][a] < b:
-            wyn += (Data[i][LookingFor]-(SUM_Tak/AMM_Tak))**2.0
+            res += (Data[i][LookingFor]-(SUM_yes/AMM_yes))**2.0
         else:
-            wyn += (Data[i][LookingFor]-(SUM_Nie/AMM_Nie))**2.0
+            res += (Data[i][LookingFor]-(SUM_no/AMM_no))**2.0
     
-    return wyn
+    return res
 
-
+#recursive creation of nodes
 def Make_node(Data_Arr, Index):
     #print(Index," - ",Data_Arr,"\n")
 
-    #warunek stopu
-    if len(Data_Arr) <= Minimum_Elems or (Index*2)+1 > Depth_Max:
+    #stop condition
+    if len(Data_Arr) <= Maksimum_Elems or (Index*2)+1 > Depth_Max:
 
-        if len(Data_Arr) == 0: #to nie powinno sie dziać
+        if len(Data_Arr) == 0: #this shouldn't happen
             TREE[Index] = -1
             return
 
@@ -55,7 +56,7 @@ def Make_node(Data_Arr, Index):
     A = 0
     B = 0
 
-    #znajdź podział o najniższym SSR
+    #find a division with lowest SSR
     for a in range(len(Data_Arr[0])):
         if a != LookingFor:
 
@@ -73,12 +74,13 @@ def Make_node(Data_Arr, Index):
                     
                     pass
     
-    #dokonaj podziału i wykonaj się dla dzieci
+    #divide and run for children
     TREE[Index] = [A,B]
 
     Left_Arr = []
     Right_Arr = []
-
+    
+    #divide using the calculated best division
     for i in range(len(Data_Arr)):
         if Data_Arr[i][A] < B:
             Left_Arr.append(Data_Arr[i])
@@ -89,6 +91,7 @@ def Make_node(Data_Arr, Index):
     Make_node(Right_Arr,(Index*2)+1)
     return
 
+    #oblicz wynik
 def calculate(wal) -> int:
     curr = 1
     while True:
@@ -102,8 +105,8 @@ def calculate(wal) -> int:
 
 
 
+#not very good visualisation but you can see the first 4 levels
 def show_tree():
-
 
     l = 30
     r = 1
@@ -122,10 +125,7 @@ def show_tree():
         
 
     pass
-
-
-
-
+#it works :>
 if __name__ == "__main__":
 
     ARR = [

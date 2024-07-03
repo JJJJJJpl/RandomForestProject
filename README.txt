@@ -1,0 +1,8 @@
+This project is an implementation of modified regressive random forest. It was made for a Machine Learning (UMA) class at Warsaw University of Technology.
+Regressive random forest means a machine learning model compromised of many smaller models where the result is a real value. We decided to use decision trees as the smaller model. Our decision trees operates on real values and we use only ‘less than’ operation for decisions. The forest makes each tree by giving it a random subset of all examples. The modification is that it will weigh the examples by the error it currently has on each of them.
+Data we used for training/testing this model: https://www.kaggle.com/datasets/iamsouravbanerjee/house-rent-prediction-dataset
+Example use:
+python Converter.py TrainingData.csv - Make a data.json containing all examples converted to real values. We can convert only dates in YYYY-MM-DD format, numbers and text (class).
+python Converter.py TestingData.csv mapping.json - Make a data.json containing all examples with the same mapping as previous files. (we renamed it to tests.json)
+python Make_forest.py data.json 2 10 10 1000 20 – Train a model, saved as forest.json. The inputs are: data.json is a path to the training data; 2 is the index of the result in data (we are looking for the rent, which is third); 10 is the maximum depth of all trees (array of size 2^10); 10 is the maximum number of examples to make a leaf; 1000 is the number of examples given to each tree; 20 is the number of trees that will be created. (for our dataset 10 1000 20 gives the best results)
+python Test_forest.py tests.json – calculates the result for each example in tests.json and prints the errors
